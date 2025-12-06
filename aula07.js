@@ -63,7 +63,7 @@ const indexUser = data.findIndex((e) => {
   return e.name === "Cadu";
 });
 console.log(indexUser);
-console.log(data[indexUser].name = "Eduardo");
+console.log((data[indexUser].name = "Eduardo"));
 console.log(data);
 
 // Map
@@ -80,18 +80,47 @@ const users3 = data.map((e) => {
   return {
     name: e.name,
     salary: e.salary,
-    bonus: e.bonus
+    bonus: e.bonus,
   };
 });
 console.log(users3);
 
-users = data.map((e) => {
-  if (e.salary <= 1500) {
-    e.name = e.name + " segundo nome"
+// users = data.map((e) => {
+//   if (e.salary <= 1500) {
+//     e.name = e.name + " segundo nome"
+//   }
+//   return {
+//     name: e.name,
+//     salary: e.salary
+//   }
+// })
+// console.log(users);
+
+//Some
+// Retorna true ou false caso pelo menos 1 item satisfaz a condição proposta.
+usersSome = data.some((e) => {
+  if (e.salary > 9000) {
+    return {
+      name: e.salary,
+    };
   }
-  return {
-    name: e.name, 
-    salary: e.salary
+});
+console.log(usersSome);
+
+//Every
+// Retorna true se todos satisfazem a condição passada. caso contrario retorna false.
+usersEvery = data.every((e) => {
+  if (e.salary > 500) {
+    return e.name;
   }
-})
-console.log(users);
+});
+console.log(usersEvery);
+
+//Reduce
+// reduz o array de objetos
+const usersReduce = data.reduce((e, user) => {
+  return (
+    e += user.salary
+  );
+},0);
+console.log(usersReduce);
